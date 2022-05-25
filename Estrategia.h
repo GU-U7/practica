@@ -9,13 +9,12 @@ class Estrategia{
 class Estrategia_Contador:public Estrategia{
     protected:
     int contador = 0;
-    virtual ~Estrategia_Contador(){}
 };
 
 class Est_5_Pares: public Estrategia_Contador{
     public:
     virtual bool ejecutar(const int& num) override;
-    virtual ~Est_5_Pares(){}
+
 };
 
 bool Est_5_Pares::ejecutar(const int& num){
@@ -27,7 +26,7 @@ bool Est_5_Pares::ejecutar(const int& num){
 class Est_5_Impares: public Estrategia_Contador{
     public:
     virtual bool ejecutar(const int& num) override;
-    virtual ~Est_5_Impares(){}
+ 
 };
 
 bool Est_5_Impares::ejecutar(const int& num){
@@ -39,7 +38,7 @@ bool Est_5_Impares::ejecutar(const int& num){
 class Est_Primo: public Estrategia{
     public:
     virtual bool ejecutar(const int& num) override;
-    virtual ~Est_Primo(){}
+
 };
 
 bool Est_Primo::ejecutar(const int& num){
@@ -53,7 +52,7 @@ bool Est_Primo::ejecutar(const int& num){
 class Est_3_Multiplos_10: public Estrategia_Contador{
     public:
     virtual bool ejecutar(const int& num) override;
-    virtual ~Est_3_Multiplos_10(){}
+
 };
 
 bool Est_3_Multiplos_10::ejecutar(const int& num){
@@ -65,7 +64,7 @@ bool Est_3_Multiplos_10::ejecutar(const int& num){
 class Est_2_Multiplos_25: public Estrategia_Contador{
     public:
     virtual bool ejecutar(const int& num) override;
-    virtual ~Est_2_Multiplos_25(){}
+
 };
 
 bool Est_2_Multiplos_25::ejecutar(const int& num){
