@@ -38,7 +38,7 @@ Juego* Juego::getInstance(){
     return juego;
 }
 
-void Juego::mensaje(const int &i){
+void Juego::mensaje(const int &i) const{
     std::cout<<"Numero generado: "<<i<<std::endl;
 }
 
@@ -47,11 +47,11 @@ void Juego::seleccionarEstrategia(const int &i){
         opciones[i] = true;
 }
 
-int Juego::getNEstrategias(){
+int Juego::getNEstrategias() const{
     return estrategias.size();
 }
 
-void Juego::victoria(const int& indice){
+void Juego::victoria(const int& indice) const{
     std::cout<<"El jugador con la estrategia Nro "<<indice+1<<" ha ganado";
 }
 
