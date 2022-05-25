@@ -1,10 +1,11 @@
 #pragma once
 
-#include<random>
-#include<Estrategia.h>
-#include<list>
-#include<vector>
 #include<iostream>
+#include<list>
+#include<random>
+#include<vector>
+#include"Estrategia.h"
+#include"Jugador.h"
 
 class Juego{
 
@@ -15,6 +16,7 @@ class Juego{
 
     bool iniciarJuego();
     void attachEstrategia(Estrategia* est);
+    int getNEstrategias();
 
     private:
     std::vector<Estrategia*> estrategias;
@@ -26,7 +28,13 @@ class Juego{
     void victoria(const int& indice);
 
     static Juego *juego;
+
+    friend class Jugador;
 };
+
+int Juego::getNEstrategias(){
+    return estrategias.size();
+}
 
 void Juego::victoria(const int& indice){
     std::cout<<"El jugador con la estrategia Nro "<<indice<<" ha ganado";

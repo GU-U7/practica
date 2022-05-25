@@ -1,3 +1,5 @@
+#pragma once
+
 class Estrategia{
     public:
     virtual bool ejecutar(const int& num) = 0;
