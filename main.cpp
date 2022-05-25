@@ -4,7 +4,7 @@
 #include"Jugador.h"
 
 // INICIALIZAR EL SINGLETON
-Juego * Juego::juego = 0;
+Juego * Juego::juego = nullptr;
 
 int main(){
     // OBTENER SINGLETON

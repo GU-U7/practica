@@ -21,11 +21,12 @@ class Juego{
 
     protected:
     static Juego *juego;
+    private:
     std::vector<Estrategia*> estrategias;
     std::vector<bool>opciones;
     std::random_device rd;
 
-    Juego();
+    Juego() = default;
     int generarNumero();
     void victoria(const int& indice);
 
@@ -40,8 +41,6 @@ Juego* Juego::getInstance(){
 void Juego::mensaje(const int &i){
     std::cout<<"Numero generado: "<<i<<std::endl;
 }
-
-Juego::Juego(){}
 
 void Juego::seleccionarEstrategia(const int &i){
     if(!opciones[i])
