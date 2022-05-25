@@ -9,6 +9,7 @@ class Estrategia{
 class Estrategia_Contador:public Estrategia{
     protected:
     int contador = 0;
+    virtual ~Estrategia_Contador(){}
 };
 
 class Est_5_Pares: public Estrategia_Contador{
