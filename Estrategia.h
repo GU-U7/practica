@@ -3,6 +3,7 @@
 class Estrategia{
     public:
     virtual bool ejecutar(const int& num) = 0;
+    virtual ~Estrategia(){}
 };
 
 class Estrategia_Contador:public Estrategia{
