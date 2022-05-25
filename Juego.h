@@ -11,16 +11,13 @@ class Juego{
     public:
     Juego(Juego &other) = delete;
     void operator=(const Juego &) = delete;
-    static Juego* getInstance(){
-        if(juego == nullptr)
-            juego = new Juego();
-        return juego;
-    }
+    static Juego* getInstance();
 
     bool iniciarJuego();
     void attachEstrategia(Estrategia* est);
     int getNEstrategias();
     void seleccionarEstrategia(const int &i);
+    void mensaje(const int &i);
 
     protected:
     static Juego *juego;
@@ -34,6 +31,16 @@ class Juego{
 
 };
 
+Juego* Juego::getInstance(){
+    if(juego == nullptr)
+        juego = new Juego();
+    return juego;
+}
+
+void Juego::mensaje(const int &i){
+    std::cout<<"Numero generado: "<<i<<std::endl;
+}
+
 Juego::Juego(){}
 
 void Juego::seleccionarEstrategia(const int &i){
@@ -46,7 +53,7 @@ int Juego::getNEstrategias(){
 }
 
 void Juego::victoria(const int& indice){
-    std::cout<<"El jugador con la estrategia Nro "<<indice<<" ha ganado";
+    std::cout<<"El jugador con la estrategia Nro "<<indice+1<<" ha ganado";
 }
 
 void Juego::attachEstrategia(Estrategia* est){
@@ -62,6 +69,7 @@ bool Juego::iniciarJuego(){
 
     while(1){
         int generado = generarNumero();
+        mensaje(generado);
         for(int i = 0; i<estrategias.size(); i++){
             if(estrategias[i]->ejecutar(generado)){
                 victoria(i);
