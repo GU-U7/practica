@@ -11,7 +11,11 @@ class Juego{
     public:
     Juego(Juego &other) = delete;
     void operator=(const Juego &) = delete;
-    static Juego* getInstance();
+    static Juego* getInstance(){
+        if(juego == nullptr)
+            juego = new Juego();
+        return juego;
+    }
 
     bool iniciarJuego();
     void attachEstrategia(Estrategia* est);
@@ -19,16 +23,18 @@ class Juego{
     void seleccionarEstrategia(const int &i);
 
     protected:
+    static Juego *juego;
     std::vector<Estrategia*> estrategias;
     std::vector<bool>opciones;
     std::random_device rd;
 
-    Juego() = default;
+    Juego();
     int generarNumero();
     void victoria(const int& indice);
 
-    static Juego *juego;
 };
+
+Juego::Juego(){}
 
 void Juego::seleccionarEstrategia(const int &i){
     if(!opciones[i])
@@ -63,12 +69,6 @@ bool Juego::iniciarJuego(){
             }
         }
     }
-}
-
-Juego* Juego::getInstance(){
-    if(juego == nullptr)
-        juego = new Juego();
-    return juego;
 }
 
 int Juego::generarNumero(){

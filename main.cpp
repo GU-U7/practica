@@ -3,6 +3,7 @@
 #include"Estrategia.h"
 #include"Jugador.h"
 
+Juego * Juego::juego = 0;
 
 int main(){
     Juego* juego = Juego::getInstance();
