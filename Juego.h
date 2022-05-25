@@ -15,9 +15,9 @@ class Juego{
 
     bool iniciarJuego();
     void attachEstrategia(Estrategia* est);
-    int getNEstrategias();
+    int getNEstrategias() const;
     void seleccionarEstrategia(const int &i);
-    void mensaje(const int &i);
+    void mensaje(const int &i) const;
 
     protected:
     static Juego *juego;
@@ -28,7 +28,7 @@ class Juego{
 
     Juego() = default;
     int generarNumero();
-    void victoria(const int& indice);
+    void victoria(const int& indice) const;
 
 };
 
@@ -66,7 +66,7 @@ bool Juego::iniciarJuego(){
             return false;
     }
 
-    while(1){
+    while(true){
         int generado = generarNumero();
         mensaje(generado);
         for(int i = 0; i<estrategias.size(); i++){
