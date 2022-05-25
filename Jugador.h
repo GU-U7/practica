@@ -4,8 +4,10 @@
 
 class Jugador{
     public:
-    // Jugador() = default;
-    Jugador(Juego* juego, const int& i){
-        juego->seleccionarEstrategia(i);
-    }
+    Jugador() = default;
+    Jugador(Juego* juego, const int& i);
 };
+
+Jugador::Jugador(Juego* juego, const int& i){
+    juego->seleccionarEstrategia(i);
+}
