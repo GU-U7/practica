@@ -15,7 +15,8 @@ int main(){
 
     while(!juego->iniciarJuego()){
         for(int i = 0; i<juego->getNEstrategias(); i++){
-            Jugador player(juego, i);
+            // Jugador player(juego, i);
+            juego->seleccionarEstrategia(i);
         }
     }
 

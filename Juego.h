@@ -5,7 +5,6 @@
 #include<random>
 #include<vector>
 #include"Estrategia.h"
-#include"Jugador.h"
 
 class Juego{
 
@@ -17,8 +16,9 @@ class Juego{
     bool iniciarJuego();
     void attachEstrategia(Estrategia* est);
     int getNEstrategias();
+    void seleccionarEstrategia(const int &i);
 
-    private:
+    protected:
     std::vector<Estrategia*> estrategias;
     std::vector<bool>opciones;
     std::random_device rd;
@@ -28,9 +28,12 @@ class Juego{
     void victoria(const int& indice);
 
     static Juego *juego;
-
-    friend class Jugador;
 };
+
+void Juego::seleccionarEstrategia(const int &i){
+    if(!opciones[i])
+        opciones[i] = true;
+}
 
 int Juego::getNEstrategias(){
     return estrategias.size();
